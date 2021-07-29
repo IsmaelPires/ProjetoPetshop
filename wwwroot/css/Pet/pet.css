@@ -1,0 +1,11 @@
+﻿.card-home {
+    border: 1px solid #1b6ec2;
+}
+
+.card-home:hover {
+    cursor: pointer;
+    background-color: #1861ac;
+    color: #ffffff;
+    transition: 0.5s;
+    box-shadow: 0 0 5px 2px #a2a8b6;
+}
