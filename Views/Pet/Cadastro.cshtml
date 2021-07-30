@@ -1,10 +1,42 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<form>
+    <h2>Cadastro de Pet</h2>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="input-nome-pet">Nome do Pet</label>
+            <input type="text" class="form-control" id="input-nome-pet" placeholder="Nome do Pet">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="input-nome-dono">Nome do dono</label>
+            <input type="text" class="form-control" id="input-nome-dono" placeholder="Nome do dono">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="input-telefone-dono">Telefone do dono</label>
+            <input type="number" class="form-control" id="input-telefone-dono" placeholder="Telefone">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="input-endereco-dono-pet">Endereco do dono</label>
+        <input type="text" class="form-control" id="input-endereco-dono-pet" placeholder="Av. Milão, Nº 1234">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="input-estado-saude">Estado de saúde</label>
+            <input type="text" class="form-control" id="input-estado-saude" placeholder="Estado de Saúde">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="input-motivo-internacao">Motivo da internação</label>
+            <input type="text" class="form-control" id="input-motivo-internacao" placeholder="Motivo da Internação">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="input-selecione-petshop">Selecione o Petshop</label>
+            <select class="form-control input-selecione-petshop">
+                @foreach (var item in ViewBag.ListaPetshop)
+                {
+                    <option value="@item.Id">@item.Nome</option>
+                }
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-salvar-petshop"><i class="fa fa-save"></i> Salvar</button>
+    <button class="btn btn-danger btn-cancelar-petshop"><i class="fa fa-close"></i> Cancelar</button>
+</form>

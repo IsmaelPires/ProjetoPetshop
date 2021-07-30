@@ -30,6 +30,7 @@ namespace ProjetoPetshop.Controllers
             return View("Cadastro");
         }
 
+        [HttpPost]
         public JsonResult Salvar(PetshopViewModel dados)
         {
             try
