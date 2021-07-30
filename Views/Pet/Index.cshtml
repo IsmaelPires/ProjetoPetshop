@@ -3,7 +3,7 @@
 
 
 <div class="m-5">
-    <h2>Listagem dos Pets</h2>
+    <h2 hidden>Listagem dos Pets</h2>
     <div class="col-md-12">
         <button class="btn btn-success pull-right novo-pet mb-2"><i class="fa fa-plus"></i> Novo Pet</button>
         <button class="btn btn-primary pull-right voltar-pet mb-2 mr-2"><i class="fa fa-close"></i> Voltar</button>
@@ -34,8 +34,8 @@
                         <td>@pet.EstadoSaude</td>
                         <td>@pet.MotivoInternacao</td>
                         <td>
-                            <button class="btn btn-warning btn-sm" data-id="@pet.Id" id="btn-editar"><i class="fa fa-pencil-square-o"></i></button>
-                            <button class="btn btn-danger btn-sm" data-id="@pet.Id" id="btn-excluir"><i class="fa fa-trash-o"></i></button>
+                            <button class="btn btn-warning btn-sm" data-id="@pet.Id" id="btn-editar-pet"><i class="fa fa-pencil-square-o"></i></button>
+                            <button class="btn btn-danger btn-sm btn-excluir-pet" data-id="@pet.Id" id="btn-excluir-pet"><i class="fa fa-trash-o"></i></button>
                         </td>
                     </tr>
                 }

@@ -6,26 +6,53 @@ $(".novo-pet").click(function () {
     window.location.href = "/Pet/Cadastro";
 });
 
-$(".btn-salvar-pet").click(function () {
-    salvar();
+$(".btn-salvar-cadastro-pet").click(function () {
+    salvarPet();
 });
 
-$("#btn-cancelar-pet").click(function () {
-    window.location.href = "/Pet/Index";
+$(".btn-cancelar-cadastro-pet").click(function () {
+    $.ajax({
+        type: "GET",
+        url: "/Pet/Index"
+    });
 });
 
-function salvar() {
+$(".btn-excluir-pet").click(function () {
+    var id = $(this).data("id");
+    var url = "/Pet/Excluir";
+
+    var data = {
+        Id: id
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: 'json',
+        url: url,
+        data: data,
+        success: function (data) {
+            exibeToast("Dados excluídos com sucesso!", "success", "fa fa-check-o", function () {
+                location.reload(true);
+            });
+        },
+        error: function (data) {
+            exibeToast("Erro ao excluir!", "error", "fa fa-close");
+        }
+    });
+});
+
+function salvarPet() {
     var nomePet = $("#input-nome-pet").val();
     var nomeDono = $("#input-nome-dono").val();
-    var endereco = $("#input-endereco-dono").val();
+    var enderecoDono = $("#input-endereco-dono-pet").val();
     var telefone = $("#input-telefone-dono").val();
     var estadoSaude = $("#input-estado-saude").val();
-    var motivoInternacao = $("#input-estado-saude").val();
+    var motivoInternacao = $("#input-motivo-internacao").val();
 
     var data = {
         Nome: nomePet,
         NomeDono: nomeDono,
-        EnderecoDono: endereco,
+        EnderecoDono: enderecoDono,
         TelefoneDono: telefone,
         EstadoSaude: estadoSaude,
         MotivoInternacao: motivoInternacao
@@ -39,7 +66,13 @@ function salvar() {
         type: "POST",
         dataType: 'json',
         url: url,
-        data: data
+        data: data,
+        success: function (data) {
+            exibeToast("Dados salvos com sucesso!", "success", "fa fa-check-o");
+        },
+        error: function (data) {
+            exibeToast("Erro ao salvar!", "error", "fa fa-close");
+        }
     });
 }
 
@@ -75,10 +108,13 @@ function validaForm(data) {
     }
 }
 
-function sucessoSalvar() {
-    alert("Sucesso ao salvar os dados!");
-}
+function exibeToast(mensagem, status, icon) {
+    $.notify({
+        icon: icon,
+        message: mensagem
+    }, {
+        // settings
+        type: status,
 
-function erroSalvar() {
-    alert("Erro ao salvar os dados!");
+    });
 }

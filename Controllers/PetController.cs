@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using ProjetoPetshop.Dominio.Entidades;
 using ProjetoPetshop.Dominio.Interfaces.Servicos;
 using ProjetoPetshop.Models;
+using System;
 using System.Diagnostics;
 
 namespace ProjetoPetshop.Controllers
@@ -41,12 +42,6 @@ namespace ProjetoPetshop.Controllers
         {
             try
             {
-                var petshop = _petshopServico.SelecionarPorId(dados.IdPetshop);
-
-                if (petshop.QuantidadeVagas <= 0) {
-                    return Json(new {mensagem = "O petshop escolhido está sem vagas. Por favor, escolha outro." });
-                }
-
                 var entidade = new Pet();
                 entidade.Nome = dados.Nome;
                 entidade.NomeDono = dados.NomeDono;
@@ -57,16 +52,31 @@ namespace ProjetoPetshop.Controllers
                 entidade.Foto = dados.Foto;
 
                 _petServico.Incluir(entidade);
-
-                var retorno = Json(new { sucesso = true });
-
-                return retorno;
+                
             }
             catch (System.Exception ex)
             {
 
                 throw ex;
             }
+
+            return Json(new { });
+        }
+
+        [HttpPost]
+        public JsonResult Excluir(PetViewModel data)
+        {
+            try
+            {
+                _petServico.Excluir(Convert.ToInt32(data.Id));
+            }
+            catch (System.Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return Json(new { });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

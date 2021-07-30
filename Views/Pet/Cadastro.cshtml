@@ -1,5 +1,5 @@
 ﻿<form>
-    <h2>Cadastro de Pet</h2>
+    <h2 hidden>Cadastro de Pet</h2>
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="input-nome-pet">Nome do Pet</label>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group col-md-4">
             <label for="input-selecione-petshop">Selecione o Petshop</label>
-            <select class="form-control input-selecione-petshop">
+            <select class="form-control" id="input-selecione-petshop">
                 @foreach (var item in ViewBag.ListaPetshop)
                 {
                     <option value="@item.Id">@item.Nome</option>
@@ -37,6 +37,6 @@
             </select>
         </div>
     </div>
-    <button type="submit" class="btn btn-success btn-salvar-petshop"><i class="fa fa-save"></i> Salvar</button>
-    <button class="btn btn-danger btn-cancelar-petshop"><i class="fa fa-close"></i> Cancelar</button>
+    <button type="submit" class="btn btn-success btn-salvar-cadastro-pet"><i class="fa fa-save"></i> Salvar</button>
+    <button class="btn btn-danger btn-cancelar-cadastro-pet"><i class="fa fa-close"></i> Cancelar</button>
 </form>

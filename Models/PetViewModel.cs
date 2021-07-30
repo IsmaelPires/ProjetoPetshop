@@ -4,6 +4,7 @@ namespace ProjetoPetshop.Models
 {
     public class PetViewModel
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string NomeDono { get; set; }
         public string EnderecoDono { get; set; }
