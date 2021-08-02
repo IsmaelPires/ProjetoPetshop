@@ -19,7 +19,7 @@ CREATE TABLE Petshop (
 	Id int(10) PRIMARY KEY auto_increment,
 	Nome varchar(100) NOT NULL,
   Endereco varchar(100) NOT NULL,
-  QuantidadeVagas int NOT NULL
+  QuantidadeVagas int(10) NOT NULL
 );
 
 CREATE TABLE Pet (
