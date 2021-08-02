@@ -16,7 +16,7 @@ CREATE DATABASE PetshopIFP;
 USE PetshopIFP;
 
 CREATE TABLE Petshop (
-	Id  PRIMARY KEY auto_increment,
+	Id int(10) PRIMARY KEY auto_increment,
 	Nome varchar(100) NOT NULL,
   Endereco varchar(100) NOT NULL,
   QuantidadeVagas int NOT NULL
